@@ -15,7 +15,7 @@ struct SendMessageRequest<'a> {
 
 #[tokio::main]
 async fn main() {
-    dotenv().unwrap();
+    dotenv().ok();
     let ldap_dn = env::var("LDAP_BIND_DN").unwrap();
     let ldap_pw = env::var("LDAP_BIND_PW").unwrap();
     let slack_url = env::var("SLACK_URL").unwrap_or("http://localhost:8080".to_string());
